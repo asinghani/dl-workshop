@@ -1,0 +1,16 @@
+
+- Python Install
+- Basic deps (for labelling / inference)
+    - python
+    - numpy
+    - pillow
+    - tensorflow
+
+- What is ML / Neural Networks
+- What is regression
+- What is detection
+- Train a basic regression model (live)
+- Labelling (live)
+- Train object detection (show but no hands-on)
+- Inference object detection
+- Connecting to robot 

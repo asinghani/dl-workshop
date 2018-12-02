@@ -1,0 +1,34 @@
+name: deep-learning
+channels:
+    - https://conda.anaconda.org/menpo
+    - conda-forge
+dependencies:
+    - python
+    - numpy
+    - matplotlib
+    - jupyter
+    - opencv3
+    - pillow
+    - scikit-learn
+    - scikit-image
+    - scipy
+    - h5py
+    - eventlet
+    - flask-socketio
+    - seaborn
+    - pandas
+    - ffmpeg
+    - imageio=2.1.2
+    - pyqt=4.11.4
+    - pip:
+        - moviepy
+        - tensorflow==1.6.0
+        - tensorboard
+        - keras==2.1.4
+        - jupyterthemes
+        - keras-vis
+        - Tkinter
+        - protobuf
+        - lxml
+        - cocoapi
+        - Cython
