@@ -1,13 +1,11 @@
 
+- What is ML / Neural Networks
+- What ML is NOT
 - Python Install
 - Basic deps (for labelling / inference)
-    - python
-    - numpy
-    - pillow
-    - tensorflow
-
-- What is ML / Neural Networks
+- Intro to software
 - What is regression
+- Overfitting and how to avoid
 - What is detection
 - Train a basic regression model (live)
 - Labelling (live)
