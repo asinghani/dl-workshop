@@ -65,7 +65,7 @@ def create_tf_example(path, label_path):
         'image/object/bbox/ymin': float_list_feature(ymin),
         'image/object/bbox/ymax': float_list_feature(ymax),
         'image/object/class/text': bytes_list_feature(["robot"] * num_labels),
-        'image/object/class/label': int64_list_feature([0] * num_labels),
+        'image/object/class/label': int64_list_feature([1] * num_labels),
     }))
 
 

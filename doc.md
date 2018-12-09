@@ -17,6 +17,10 @@ cd dl-workshop
 conda env create -f environment.yml # This may take a while
 sudo yum install protobuf
 sudo yum install protobuf-compiler
+
+# MUST RUN THIS EVERY TIME TO ENABLE THE PYTHON ENVIRONMENT
+conda activate deep-learning
+export PYTHONPATH=$PYTHONPATH:~/models/research:~/models/research/slim
 ```
 
 ## Install TensorFlow Object Detection
@@ -48,7 +52,7 @@ Copy your `train.record` and `test.record` into this directory (either through a
 The file `label_map.pbtxt` should contain the following
 ```
 item {
-  id: 0
+  id: 1
   name: 'Robot'
 }
 ```
@@ -58,4 +62,11 @@ item {
 See `pipeline.config` in this repo as an example
 
 ## Training
-Now you are ready to train your model
+Now you are ready to train your model!
+
+```
+python ~/models/research/object_detection/train.py \
+    --logtostderr \
+    --pipeline_config_path=pipeline.config \
+    --train_dir=train_out
+```
