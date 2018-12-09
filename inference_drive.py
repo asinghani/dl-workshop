@@ -62,12 +62,12 @@ with detection_graph.as_default():
                         ymin, xmin, ymax, xmax = out["detection_boxes"][i]
                         print(out["detection_boxes"][i])
 
-                        center = xmax + xmin / 2.0
+                        center = (xmax + xmin) / 2.0
 
                         cv2.rectangle(image, (int(xmin * w), int(ymin * h)), (int(xmax * w), int(ymax * h)), (0, 255, 0), 3)
 
-            turn_speed = 100 * (center - 0.5)
+            turn_speed = 200 * (center - 0.5)
             print("turn", turn_speed)
-            #bot.drive_direct(-turn_speed, turn_speed)
+            bot.drive_direct(-turn_speed, turn_speed)
 
 
