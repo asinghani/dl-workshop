@@ -51,7 +51,7 @@ def create_tf_example(path, label_path):
         ymin.append(y - 0.5 * h)
         ymax.append(y + 0.5 * h)
 
-        continue
+    num_labels = len(labels)
 
     return tf.train.Example(features=tf.train.Features(feature={
         'image/height': int64_feature(height),
