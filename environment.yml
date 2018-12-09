@@ -22,7 +22,13 @@ dependencies:
     - pyqt=4.11.4
     - pip:
         - moviepy
-        - tensorflow==1.6.0
+
+        # The following line is for GPU-based machines. To use a CPU-only machine, remove this line and uncomment the line after it
+        - https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp35-cp35m-linux_x86_64.whl
+
+        # Uncomment the following line to use non-GPU tensorflow
+        #- tensorflow==1.6.0
+
         - tensorboard
         - keras==2.1.4
         - jupyterthemes
