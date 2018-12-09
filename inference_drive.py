@@ -2,6 +2,13 @@ import tensorflow as tf
 import numpy as np
 import cv2
 
+from pycreate2 import Create2
+import time
+
+bot = Create2("/dev/ttyUSB0")
+bot.start()
+bot.full()
+
 detection_graph = tf.Graph()
 with detection_graph.as_default():
     gd = tf.GraphDef()
@@ -19,7 +26,7 @@ def infer_image(image, graph, image_tensor):
 
     return output_dict
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(2)
 
 with detection_graph.as_default():
     with tf.Session() as sess:
@@ -37,19 +44,30 @@ with detection_graph.as_default():
 
         while True:
             image = cap.read()[1]
+            image = cap.read()[1]
+            image = cap.read()[1]
+            image = cv2.resize(image, (300, 300))
+            if image is None:
+                continue
             h, w = image.shape[0:2]
             image_scaled = image[:, :, ::-1] #/ 255.0
 
             out = infer_image(image_scaled, detection_graph, image_tensor)
-            print(out)
+
+            center = 0.5
 
             for i in range(len(out["detection_scores"])):
                 if out["detection_scores"][i] > 0.6:
-                    if out["detection_classes"][i] == 1: 
+                    if out["detection_classes"][i] == 1:
                         ymin, xmin, ymax, xmax = out["detection_boxes"][i]
+                        print(out["detection_boxes"][i])
+
+                        center = xmax + xmin / 2.0
 
                         cv2.rectangle(image, (int(xmin * w), int(ymin * h)), (int(xmax * w), int(ymax * h)), (0, 255, 0), 3)
 
-            cv2.imshow("asdkjahsdkads", image)
-            cv2.waitKey(5)
+            turn_speed = 100 * (center - 0.5)
+            print("turn", turn_speed)
+            #bot.drive_direct(-turn_speed, turn_speed)
+
 
