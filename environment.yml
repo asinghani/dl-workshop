@@ -4,7 +4,7 @@ channels:
     - conda-forge
 dependencies:
     - python
-    - numpy
+    - numpy==1.13.3
     - matplotlib
     - jupyter
     - opencv3
@@ -23,18 +23,16 @@ dependencies:
     - pip:
         - moviepy
 
-        # The following line is for GPU-based machines. To use a CPU-only machine, remove this line and uncomment the line after it
-        - https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp35-cp35m-linux_x86_64.whl
+        # The following line is for GPU-based machines. Uncomment it on GPU machines
+        #- tensorflow-gpu==1.6.0
 
         # Uncomment the following line to use non-GPU tensorflow
-        #- tensorflow==1.6.0
+        - tensorflow==1.6.0
 
-        - tensorboard
+        - tensorboard==1.6.0
         - keras==2.1.4
         - jupyterthemes
         - keras-vis
-        - Tkinter
         - protobuf
         - lxml
-        - cocoapi
         - Cython
